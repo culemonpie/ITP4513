@@ -1,0 +1,86 @@
+.table-extra-condensed>thead>tr>th,
+.table-extra-condensed>tbody>tr>th,
+.table-extra-condensed>tfoot>tr>th,
+.table-extra-condensed>thead>tr>td,
+.table-extra-condensed>tbody>tr>td,
+.table-extra-condensed>tfoot>tr>td{ padding: 2px; }
+
+.wide-spacing{
+	letter-spacing:0.1em;
+}
+
+.wrapper{
+	font-family: Barlow;
+}
+
+/* Button Default */
+
+.btn-default{color:#333;background-color:#fff;border-color:#ccc}
+.btn-default.focus,.btn-default:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c}
+.btn-default.active,.btn-default:active,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:#333;background-color:#e6e6e6;border-color:#adadad}
+.btn-default.active.focus,.btn-default.active:focus,.btn-default.active:hover,.btn-default:active.focus,.btn-default:active:focus,.btn-default:active:hover,.open>.dropdown-toggle.btn-default.focus,.open>.dropdown-toggle.btn-default:focus,.open>.dropdown-toggle.btn-default:hover{color:#333;background-color:#d4d4d4;border-color:#8c8c8c}
+.btn-default.disabled.focus,.btn-default.disabled:focus,.btn-default.disabled:hover,.btn-default[disabled].focus,.btn-default[disabled]:focus,.btn-default[disabled]:hover,fieldset[disabled] .btn-default.focus,fieldset[disabled] .btn-default:focus,fieldset[disabled] .btn-default:hover{background-color:#fff;border-color:#ccc}
+.btn-default .badge{color:#fff;background-color:#333}
+
+/* underscore link */
+
+a.link-underscore{text-decoration:underline;}
+a.link-underscore:hover {text-decoration:none;}
+
+/* - modified */
+.bg-secondary a{
+	color: #F1D92F;
+}
+
+a.btn-primary {
+	color: #000000 !important;
+}
+
+.A5-portrait{
+	width:14.8cm;height:21cm;
+}
+
+@media print{@page {size: landscape}}
+.A4-landscape{
+	width:29.5cm;height:20.8cm;
+}
+
+@media print{
+	.col-print-1 {width:8%;  float:left;}
+	.col-print-2 {width:16%; float:left;}
+	.col-print-3 {width:25%; float:left;}
+	.col-print-4 {width:33%; float:left;}
+	.col-print-5 {width:42%; float:left;}
+	.col-print-6 {width:50%; float:left;}
+	.col-print-7 {width:58%; float:left;}
+	.col-print-8 {width:66%; float:left;}
+	.col-print-9 {width:75%; float:left;}
+	.col-print-10{width:83%; float:left;}
+	.col-print-11{width:92%; float:left;}
+	.col-print-12{width:100%; float:left;}
+}
+
+
+.active-tab{
+	border-bottom: 3px solid #CC0066; padding: 5px;
+}
+
+.form-checkbox{
+	top: .8rem;
+	width: 1.55rem;
+	height: 1.55rem;
+	display:inline;
+	zoom:1.2
+}
+
+.bg-grey{
+	background-color: #999;
+}
+
+.round-corner{
+border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: bold;
+}
