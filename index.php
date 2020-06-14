@@ -21,38 +21,51 @@ include 'inc/header.php';
 					<li class="nav-item"> <a class="nav-link" href="" data-toggle="tab" data-target="#tabone">Tenant</a> </li>
 				</ul>
 				<div class="tab-content mt-2">
-					<div class="tab-pane fade" id="tabone" role="tabpanel">
-						<form id="c_form-h" action="dashboard.php">
-							<div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">E-mail</label>
-								<div class="col-8">
-									<!-- Email type -->
-									<input type="" class="form-control" id="inputmailh" placeholder="mail@example.com">
-								</div>
-							</div>
-							<div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label">Password</label>
-								<div class="col-8">
-									<input type="password" class="form-control" id="inputpasswordh" placeholder="Password">
-								</div>
-							</div>
-							<button type="submit" class="btn btn-default">Login as tenant</button>
-						</form>
-					</div>
+
+
+					<?php
+					//Form for Customer
+					?>
+
 					<div class="tab-pane fade show active" id="tabtwo" role="tabpanel">
-						<form id="c_form-h" class="" action="dashboard.php">
-							<div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Username</label>
+						<form method="POST" action="dashboard.php">
+							<div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Email</label>
 								<div class="col-8">
-									<input type="text" class="form-control" id="inputmailh" placeholder="mail@example.com">
+									<!-- This will be changed to type email -->
+									<input type="text" class="form-control" name="customer_email" placeholder="">
 								</div>
 							</div>
 							<div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label">Password</label>
 								<div class="col-8">
-									<input type="password" class="form-control" id="inputpasswordh" placeholder="Password">
+									<input type="password" class="form-control" name="customer_password">
 								</div>
 							</div>
-							<button type="submit" class="btn btn-default">Login as customer</button>
+							<button type="submit" name="customer_login" class="btn btn-default">Login as customer</button>
 							<a href="register.php" class="btn btn-default">Register</a>
 						</form>
 					</div>
+
+					<?php
+					//Form for Tenant
+					?>
+
+					<div class="tab-pane fade" id="tabone" role="tabpanel">
+						<form method="POST" action="dashboard.php">
+							<div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Username</label>
+								<div class="col-8">
+
+									<input type="" name="tenant_username" class="form-control" id="inputmailh">
+								</div>
+							</div>
+							<div class="form-group row"> <label for="" class="col-2 col-form-label">Password</label>
+								<div class="col-8">
+									<input type="password" name="tenant_password" class="form-control" id="inputpasswordh">
+								</div>
+							</div>
+							<button type="submit" name="tenant_login" class="btn btn-default">Login as tenant</button>
+						</form>
+					</div>
+
 				</div>
 			</div>
 		</div>

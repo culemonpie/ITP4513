@@ -1,3 +1,25 @@
+<?php
+
+/*
+This header is to be included in the front of all pages.
+This page contains the required css / js dependencies to be included, and performs a connection to the database.
+*/
+
+$hostname = "127.0.0.1";
+$database = "ProjectDB";
+$username = "4513cubeshop";
+$password = "fWDVmDH2D9yeuf";
+$port = 3306;
+
+// $conn = mysqli_connect($hostname, $username, $password, $database);
+$conn = new mysqli($hostname,$username,$password,$database, $port);
+
+if ($conn -> connect_errno) {
+	echo "Failed to connect to MySQL: " . $conn -> connect_error;
+	// exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +44,7 @@
 				<!-- Logged in users only -->
 				<li class="nav-item"> <a class="nav-link text-secondary" href="list-order.php">Order</a> </li>
 				<li class="nav-item"> <a class="nav-link text-secondary" href="#">Goods</a> </li>
-				<li class="nav-item"> <a class="nav-link text-secondary" href="#">Report</a> </li>
+				<li class="nav-item"> <a class="nav-link text-secondary" href="report.php">Report</a> </li>
 				<li class="nav-item"> <a class="nav-link text-secondary" href="view-profile.php">Profile</a> </li>
 				<li class="nav-item">
 					<a class="nav-link text-secondary" href="view-profile.php">
