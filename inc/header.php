@@ -18,6 +18,9 @@ if ($conn -> connect_errno) {
 	echo "Failed to connect to MySQL: " . $conn -> connect_error;
 	// exit();
 }
+
+require_once("functions.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +30,8 @@ if ($conn -> connect_errno) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>HKCubeShop</title>
-	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
+	<script src="js/fontawesome.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custom.css">
 </head>

@@ -24,6 +24,10 @@ include 'inc/header.php';
 
 		}
 
+		$qs = "insert into goods(consignmentStoreID, goodsName, stockPrice, remainingStock, status) values(1, 'Noodle', 30, 100, 1);";
+		// $query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
+
 		mysql_close($conn);
 
 		?>

@@ -1,23 +1,4 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	print("
-	<hr>
-	<div class='container my-3'>
-	<div class='row'>
-	Debug Information<br>
-	");
-
-	foreach ($_POST as $key => $value){
-		echo $key." - ".$value."<br>";
-	}
-
-	print("
-	</div>
-	</div>
-	");
-}
-?>
-
+<?php print_post_message(); ?>
 
 <div class="bg-primary">
 	<div class="container my-3">
