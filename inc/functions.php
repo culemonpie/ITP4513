@@ -30,4 +30,12 @@ function print_post_message(){
 	}
 }
 
+function customer_only(){
+
+}
+
+function tenant_only(){
+	
+}
+
 ?>

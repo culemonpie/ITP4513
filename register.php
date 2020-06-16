@@ -1,5 +1,10 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code:
+Who can access: Anonymous users
+*/
 ?>
 
 <?php

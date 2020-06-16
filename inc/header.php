@@ -26,39 +26,61 @@ require_once("functions.php");
 <!DOCTYPE html>
 <html>
 
+<!-- HTML head -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>HKCubeShop</title>
-	<!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
 	<script src="js/fontawesome.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custom.css">
 </head>
 
+
+<!-- Site navigation bar -->
 <body>
-	<nav class="navbar navbar-expand-md navbar-light shadow-sm rounded">
-		<div class="container"> <a class="navbar-brand text-primary" href="index.php">
-			<img src="img/logo.png" style="height:40px">
-		</a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbar4">
-			<ul class="navbar-nav ml-auto">
-				<!-- Logged in users only -->
-				<li class="nav-item"> <a class="nav-link text-secondary" href="list-order.php">Order</a> </li>
-				<li class="nav-item"> <a class="nav-link text-secondary" href="#">Goods</a> </li>
-				<li class="nav-item"> <a class="nav-link text-secondary" href="report.php">Report</a> </li>
-				<li class="nav-item"> <a class="nav-link text-secondary" href="view-profile.php">Profile</a> </li>
-				<li class="nav-item">
-					<a class="nav-link text-secondary" href="view-profile.php">
-					<i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-					<span class="badge badge-light">2</span>
-				</a>
+	<nav class="navbar navbar-expand-md navbar-light">
+		<div class="container">
+			<a class="navbar-brand" href="index.php">
+				<img src="img/logo.png" style="height:40px">
+			</a>
+			<button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4" style="">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbar4">
+				<ul class="navbar-nav ml-auto">
+					<!-- Logged in users only -->
+
+					<!-- Customer -->
+					<li class="nav-item"> <a class="nav-link text-secondary" href="list-stores.php">Browse</a> </li>
+					<li class="nav-item"> <a class="nav-link text-secondary" href="manage-orders.php">Manage Order</a> </li>
+					<li class="nav-item"> <a class="nav-link text-secondary" href="view-profile.php">Profile</a> </li>
+
+					<li class="nav-item"> <span class="nav-link"> // </span></li>
+
+					<!-- Tenant -->
+					<li class="nav-item"> <a class="nav-link text-secondary" href="list-goods.php">Goods</a> </li>
+					<li class="nav-item"> <a class="nav-link text-secondary" href="list-report.php">Report</a> </li>
+
+
+					<!-- Everyone -->
+
+					<?php
+					// <li class="nav-item">
+					// 	<a class="nav-link text-secondary" href="view-profile.php">
+					// 	<i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+					// 	<span class="badge badge-light">2</span>
+					// </a>
+					?>
 
 				</li>
-				<li class="nav-item"> <a class="nav-link text-secondary" href="index.php">Logout</a> </li>
 			</ul>
 		</div>
 	</div>
 </nav>
+
+<div class="container-fluid py-1 bg-secondary shadow-sm text-right text-white">
+	<i class="fa fa-user" aria-hidden="true"></i>  Tenant - Joe Chan |
+	<a class="text-white font-weight-bold" href="index.php">Logout</a>
+
+</div>

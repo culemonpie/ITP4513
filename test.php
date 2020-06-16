@@ -1,5 +1,12 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code:
+Who can access: Customer
+Description: For testing only.
+*/
+
 ?>
 
 <div class="container">

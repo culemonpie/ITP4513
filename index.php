@@ -1,5 +1,12 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code:
+Who can access: Anonymous users
+Description: Homepage of the website. If a user visits a page without permission, they will be redirected to this page.
+*/
+
 ?>
 
 <div class="py-2 bg-primary">

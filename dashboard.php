@@ -1,5 +1,11 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code:
+Who can access: Logged in users
+Description: The page where user lands after login.
+*/
 ?>
 
 <div class="container">
