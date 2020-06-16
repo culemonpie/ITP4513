@@ -53,7 +53,7 @@ require_once("functions.php");
 
 					<!-- Customer -->
 					<li class="nav-item"> <a class="nav-link text-secondary" href="list-stores.php">Browse</a> </li>
-					<li class="nav-item"> <a class="nav-link text-secondary" href="manage-orders.php">Manage Order</a> </li>
+					<li class="nav-item"> <a class="nav-link text-secondary" href="manage-orders.php">Order</a> </li>
 					<li class="nav-item"> <a class="nav-link text-secondary" href="view-profile.php">Profile</a> </li>
 
 					<li class="nav-item"> <span class="nav-link"> // </span></li>
