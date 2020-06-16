@@ -14,7 +14,8 @@ include 'inc/header.php';
 
 	<div class="row mt-2">
 		<div class="col-12">
-			<a href="edit-goods.php" class="btn btn-default">Edit</a>
+			<a href="list-goods.php" class="btn btn-default">Return</a>
+			<a href="edit-goods.php" class="btn btn-secondary">Edit</a>
 		</div>
 	</div>
 

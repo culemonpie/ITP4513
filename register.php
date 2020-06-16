@@ -50,27 +50,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	if ($is_valid){
 		//Redirect to another page
-		//'CustomerEmail', 'FirstName', 'LastName', 'phoneNumber', 'password'
+		//'CustomerEmail', 'FirstName', 'LastName', 'password', 'phoneNumber'
 		$query = $conn->prepare("INSERT INTO CUSTOMER VALUES(?,?,?,?,?)");
-		$query->bind_param('s', $customerEmail);
-		$query->bind_param('s', $firstName);
-		$query->bind_param('s', $lastName);
-		$query->bind_param('s', $phoneNumber);
-		$query->bind_param('s', $password);
+		$query->bind_param('sssss', $customerEmail, $firstName, $lastName, $password, $phoneNumber);
 
 		if(!$query->execute()){
-			echo $query->error;
+			$error_message = $query->error;
+		} else {
+			header("Location: registration-success.php");
 		}
 
 		$result = $query->get_result();
 
-		exit();
 	}
 
-	// Something went wrong
+	if ($error_message != ""){
+		// Something went wrong
 		print_error_message($error_message);
-
-
+	}
 }
 ?>
 
@@ -86,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	<?php //action="registration-success.php" ?>
 
-	<form class=""  method="post">
+	<form class="" action="registration-success.php" method="post">
 
 		<div class="form-group">
 			<div class="row">
