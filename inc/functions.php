@@ -1,13 +1,20 @@
 <?php
 
 function print_error_message($error_message){
-	print("
-	<div class='container mt-3'>
-	<div class='alert alert-danger'>
-	$error_message
-	</div>
-	</div>
-	");
+	/*
+	Display an alert message to the user.
+	Recommended to be placed below the navbar, or a place where appropriate.
+	*/
+
+	if (isset($error_message) && $error_message != ''){
+		print("
+		<div class='container mt-3'>
+		<div class='alert alert-danger'>
+		$error_message
+		</div>
+		</div>
+		");
+	}
 }
 
 function print_post_message(){
@@ -35,7 +42,7 @@ function customer_only(){
 }
 
 function tenant_only(){
-	
+
 }
 
 ?>

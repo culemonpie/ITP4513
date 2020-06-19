@@ -5,14 +5,14 @@ This header is to be included in the front of all pages.
 This page contains the required css / js dependencies to be included, and performs a connection to the database.
 */
 
-$hostname = "127.0.0.1";
-$database = "ProjectDB";
-$username = "4513cubeshop";
-$password = "fWDVmDH2D9yeuf";
-$port = 3306;
+$db_hostname = "127.0.0.1";
+$db_database = "ProjectDB";
+$db_username = "4513cubeshop";
+$db_password = "fWDVmDH2D9yeuf";
+$db_port = 3306;
 
 // $conn = mysqli_connect($hostname, $username, $password, $database);
-$conn = new mysqli($hostname,$username,$password,$database, $port);
+$conn = new mysqli($db_hostname,$db_username,$db_password,$db_database, $db_port);
 
 if ($conn -> connect_errno) {
 	echo "Failed to connect to MySQL: " . $conn -> connect_error;
@@ -20,6 +20,9 @@ if ($conn -> connect_errno) {
 }
 
 require_once("functions.php");
+
+session_start();
+
 
 ?>
 
@@ -79,8 +82,38 @@ require_once("functions.php");
 	</div>
 </nav>
 
-<div class="container-fluid py-1 bg-secondary shadow-sm text-right text-white">
-	<i class="fa fa-user" aria-hidden="true"></i>  Tenant - Joe Chan |
-	<a class="text-white font-weight-bold" href="index.php">Logout</a>
+<?php
+//Get display name of user. If empty, the user is not logged in
 
-</div>
+$display_name = "";
+if(isset($_SESSION['type'])){
+	if ($_SESSION['type'] == 'tenant'){
+		$qs = "SELECT * FROM TENANT WHERE tenantID = '$_SESSION[tenantID]'";
+		$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+		$tenant = mysqli_fetch_assoc($query);
+		$display_name = $tenant["tenantID"];
+	} else if ($_SESSION['type'] == 'customer'){
+		$qs = "SELECT * FROM CUSTOMER WHERE customerEmail = '$_SESSION[customerEmail]'";
+		$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+		$tenant = mysqli_fetch_assoc($query);
+		$display_name = $tenant["firstName"]." ".$tenant["lastName"] ;
+	};
+}
+?>
+
+<?php
+if (isset($display_name) && $display_name != "" ){
+	printf("
+	<div class='container-fluid py-1 bg-secondary shadow-sm text-right text-white'>
+	<i class='fa fa-user' aria-hidden='true'></i> $display_name |
+	<a class='text-white font-weight-bold' href='logout.php'>Logout</a>
+	</div>
+	");
+} else {
+	printf("
+	<div class='container-fluid py-1 bg-secondary shadow-sm text-right text-white'>
+	Anonymous
+	</div>
+	");
+}
+?>

@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	<?php //action="registration-success.php" ?>
 
-	<form class="" action="registration-success.php" method="post">
+	<form class="" method="post">
 
 		<div class="form-group">
 			<div class="row">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					Email
 				</div>
 				<div class="col-12 col-sm-6">
-					<input type="email" class="form-control" name="customerEmail" value="">
+					<input type="email" class="form-control" name="customerEmail" value="" required>
 				</div>
 			</div>
 		</div>
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					First name
 				</div>
 				<div class="col-12 col-sm-6">
-					<input type="text" class="form-control" name="firstName" value="">
+					<input type="text" class="form-control" name="firstName" value="" required>
 				</div>
 			</div>
 		</div>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					Last name
 				</div>
 				<div class="col-12 col-sm-6">
-					<input type="text" class="form-control" name="lastName" value="">
+					<input type="text" class="form-control" name="lastName" value="" required>
 				</div>
 			</div>
 		</div>
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					Phone
 				</div>
 				<div class="col-12 col-sm-6">
-					<input type="text" class="form-control" name="phoneNumber" value="">
+					<input type="text" class="form-control" name="phoneNumber" value="" required>
 				</div>
 			</div>
 		</div>
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					Password
 				</div>
 				<div class="col-12 col-sm-6">
-					<input type="password" class="form-control" name="password" value="">
+					<input type="password" class="form-control" name="password" value="" required>
 				</div>
 			</div>
 		</div>
