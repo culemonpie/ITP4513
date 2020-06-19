@@ -38,11 +38,17 @@ function print_post_message(){
 }
 
 function customer_only(){
-
+	if (isset($_SESSION["type"]) && $_SESSION["type"] == "tenant"){
+		header("location: customer-only.php");
+		// echo ("This page is for customers only");
+	}
 }
 
 function tenant_only(){
-
+	if (isset($_SESSION["type"]) && $_SESSION["type"] == "customer"){
+		header("location: tenant-only.php");
+		// echo ("This page is for tenant only");
+	}
 }
 
 ?>

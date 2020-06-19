@@ -1,5 +1,13 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code:
+Who can access: Tenant
+Description: The page where user lands after login.
+*/
+
+tenant_only();
 ?>
 
 <div class="container">

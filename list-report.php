@@ -1,5 +1,7 @@
 <?php
 include 'inc/header.php';
+
+tenant_only();
 ?>
 
 <?php

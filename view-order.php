@@ -1,5 +1,13 @@
 <?php
 include 'inc/header.php';
+
+customer_only();
+
+$consignmentStoreID = 1; //debug
+
+$qs = "select * from goods where consignmentStoreID = $consignmentStoreID";
+
+
 ?>
 
 <div class="container">

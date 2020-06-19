@@ -5,10 +5,14 @@ This header is to be included in the front of all pages.
 This page contains the required css / js dependencies to be included, and performs a connection to the database.
 */
 
+
+//MySQL connection
 $db_hostname = "127.0.0.1";
 $db_database = "ProjectDB";
 $db_username = "4513cubeshop";
 $db_password = "fWDVmDH2D9yeuf";
+// $db_username = "root";
+// $db_password = "";
 $db_port = 3306;
 
 // $conn = mysqli_connect($hostname, $username, $password, $database);
@@ -23,6 +27,7 @@ require_once("functions.php");
 
 session_start();
 
+$error_message = ""; //To print the error message at desired page
 
 ?>
 
@@ -105,7 +110,7 @@ if(isset($_SESSION['type'])){
 if (isset($display_name) && $display_name != "" ){
 	printf("
 	<div class='container-fluid py-1 bg-secondary shadow-sm text-right text-white'>
-	<i class='fa fa-user' aria-hidden='true'></i> $display_name |
+	<i class='fa fa-user' aria-hidden='true'></i> $_SESSION[type] -  $display_name |
 	<a class='text-white font-weight-bold' href='logout.php'>Logout</a>
 	</div>
 	");

@@ -1,5 +1,8 @@
 <?php
 include 'inc/header.php';
+
+customer_only();
+
 ?>
 
 <div class="container">

@@ -6,6 +6,9 @@ Page code:
 Who can access: Customer
 Description: The page where user lands after login.
 */
+
+customer_only();
+
 ?>
 
 <div class="container">
