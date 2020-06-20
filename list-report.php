@@ -1,6 +1,12 @@
 <?php
 include 'inc/header.php';
 
+/*
+Page code: 8.1
+Who can access: Tenant
+Description: List of orders from one's consignment store
+*/
+
 tenant_only();
 ?>
 

@@ -32,6 +32,7 @@ Description: The page where user lands after login.
 				<tr>
 					<th>Goods</th>
 					<th>Quantity in stock</th>
+					<th>Unit Price</th>
 					<th>Quantity you would like to order</th>
 					<th></th>
 				</tr>
@@ -41,12 +42,14 @@ Description: The page where user lands after login.
 				<tr>
 					<td>Bracelet</td>
 					<td>2</td>
+					<td>99</td>
 					<td><input type="number" name="" min="0" value=""> </td>
 				</tr>
 
 				<tr>
 					<td>Fuji Apple</td>
 					<td>8</td>
+					<td>10</td>
 					<td><input type="number" name="" min="0" value=""> </td>
 				</tr>
 

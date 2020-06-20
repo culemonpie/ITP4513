@@ -2,12 +2,11 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 1.1
 Who can access: Logged in users
 Description: The page where user lands after login.
 */
-
-
+login_only();
 
 ?>
 

@@ -2,10 +2,12 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 4.5
 Who can access: Tenant
-Description: The page where user lands after login.
+Description: List of the goods a tenant own.
 */
+
+
 
 tenant_only();
 ?>

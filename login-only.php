@@ -2,7 +2,7 @@
 include 'inc/header.php';
 
 /*
-Page code: 8.3
+Page code: 8.2
 Who can access: Users except tenant
 */
 
@@ -16,7 +16,7 @@ Who can access: Users except tenant
 				<i class="fa fa-ban fa-3x" aria-hidden="true"></i>
 			</div>
 			<div class="">
-				This page is for customer only.
+				This page is for logged in users only.
 			</div>
 		</div>
 	</div>

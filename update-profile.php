@@ -2,9 +2,9 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 6.1
 Who can access: Customer
-Description: Page where customer can edit their profile.
+Description: Customer can edit their profile.
 */
 
 customer_only();

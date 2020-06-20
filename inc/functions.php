@@ -37,18 +37,27 @@ function print_post_message(){
 	}
 }
 
+function login_only(){
+	if (!isset($_SESSION["type"])){
+		header("location: login-only.php");
+	}
+}
+
 function customer_only(){
+	login_only();
 	if (isset($_SESSION["type"]) && $_SESSION["type"] == "tenant"){
 		header("location: customer-only.php");
-		// echo ("This page is for customers only");
 	}
 }
 
 function tenant_only(){
+	login_only();
 	if (isset($_SESSION["type"]) && $_SESSION["type"] == "customer"){
 		header("location: tenant-only.php");
-		// echo ("This page is for tenant only");
 	}
 }
+
+
+
 
 ?>

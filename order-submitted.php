@@ -1,5 +1,12 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code: 3.6
+Who can access: Customer
+Description: The page where user lands after login.
+*/
+
 ?>
 
 <div class="container">

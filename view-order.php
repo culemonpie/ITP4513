@@ -1,12 +1,20 @@
 <?php
 include 'inc/header.php';
 
+/*
+Page code: 4.6
+Who can access: Customer
+Description: A tenant can view their own goods.
+*/
+
 customer_only();
 
-$consignmentStoreID = 1; //debug
+$orderID = 1; //debug
 
-$qs = "select * from goods where consignmentStoreID = $consignmentStoreID";
+$qs = "select * from orders where orderID = '$orderID'";
+$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
 
+$order = mysqli_fetch_assoc($query);
 
 ?>
 

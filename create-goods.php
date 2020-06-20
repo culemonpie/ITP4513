@@ -1,5 +1,10 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code: 6.2
+Who can access: Tenant
+*/
 ?>
 
 <div class="container">

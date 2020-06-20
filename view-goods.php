@@ -1,5 +1,14 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code: 4.6
+Who can access: Tenant
+Description: A tenant can view their own goods.
+*/
+
+tenant_only();
+
 ?>
 
 <div class="container">
@@ -15,7 +24,7 @@ include 'inc/header.php';
 	<div class="row mt-2">
 		<div class="col-12">
 			<a href="list-goods.php" class="btn btn-default">Return</a>
-			<a href="edit-goods.php" class="btn btn-secondary">Edit</a>
+			<a href="edit-goods.php?goodsNumber=" class="btn btn-secondary">Edit</a>
 		</div>
 	</div>
 

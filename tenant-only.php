@@ -2,7 +2,7 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 8.4
 Who can access: Users except tenant
 */
 

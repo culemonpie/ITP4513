@@ -1,5 +1,15 @@
 <?php
 include 'inc/header.php';
+
+
+/*
+Page code: 6.2
+Who can access: Tenant
+Description: Edit the name, quantity stock price and status for a goods.
+*/
+
+tenant_only();
+
 ?>
 
 <div class="container">

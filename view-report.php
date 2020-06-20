@@ -1,6 +1,14 @@
 <?php
 include 'inc/header.php';
 
+
+/*
+Page code: 3.4
+Who can access: Tenant
+Description: View the content of a report
+*/
+
+
 /*
 1. Order ID - ok
 2. Order Date - ok
@@ -29,6 +37,7 @@ include 'inc/header.php';
 	<div class="row">
 		<div class="col-12">
 			<a href="list-report.php" class="btn btn-default">Return</a>
+			<a href="javascript:void;" onclick="if(confirm('Are you sure?')){window.location.href='delete-order.php?id=1';}" class="btn btn-danger ml-1">Delete</a>
 		</div>
 	</div>
 

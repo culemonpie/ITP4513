@@ -2,7 +2,7 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 6.2
 Who can access: Customer
 */
 ?>
@@ -14,22 +14,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	If so, proceed to condition 2.
 	Otherwise, prompt user that the original password is wrong.
 
-	2. Check if new_password1== new_password2.
+	2. Check if newPassword1== newPassword2.
 	If so, update the password of the user.
 	Otherwise, prompt user that the passwords do not match.
 	*/
 
 	extract($_POST);
 
-	if ($new_password1==$new_password2){
-		header("Location: view-profile.php");
-		exit;
-	} else{
-		echo "Incorrect Password";
-	}
+	$originalPassword = $conn->real_escape_string($originalPassword);
+	$newPassword1 = $conn->real_escape_string($newPassword1);
+	$newPassword2 = $conn->real_escape_string($newPassword2);
 
+	$qs = "SELECT * FROM CUSTOMER WHERE customerEmail = '$_SESSION[customerEmail]' and password = '$originalPassword'";
+	$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
+	if (mysqli_num_rows($query) == 1){
+		if ($newPassword1==$newPassword2){
+			$qs = "UPDATE CUSTOMER SET password = '$newPassword1' WHERE customerEmail = '$_SESSION[customerEmail]';";
+			$error_message.=$qs."<br>";
+			$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+			header("Location: view-profile.php");
+			exit;
+		} else {
+			$error_message.="Inconsistent new passwords<br>";
+		}
+	} else {
+		$error_message.="Incorrect Password<br>";
+	}
 }
+
+print_error_message($error_message);
+
 ?>
+
 
 <div class="container">
 	<div class="row">
@@ -54,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				Original password
 			</div>
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="password" class="form-control" name="original_password" value="">
+				<input type="password" class="form-control" name="originalPassword" value="">
 			</div>
 		</div>
 
@@ -63,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				New password
 			</div>
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="password" class="form-control" name="new_password1" value="">
+				<input type="password" class="form-control" name="newPassword1" value="">
 			</div>
 		</div>
 
@@ -72,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				Confirm password
 			</div>
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="password" class="form-control" name="new_password2" value="">
+				<input type="password" class="form-control" name="newPassword2" value="">
 			</div>
 		</div>
 

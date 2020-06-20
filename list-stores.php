@@ -1,6 +1,12 @@
 <?php
 include 'inc/header.php';
 
+/*
+Page code: 4.1
+Who can access: Tenant
+Description: The page where user lands after login.
+*/
+
 customer_only();
 
 ?>
