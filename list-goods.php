@@ -7,9 +7,9 @@ Who can access: Tenant
 Description: List of the goods a tenant own.
 */
 
-
-
 tenant_only();
+
+
 ?>
 
 <div class="container">

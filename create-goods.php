@@ -5,6 +5,75 @@ include 'inc/header.php';
 Page code: 6.2
 Who can access: Tenant
 */
+
+tenant_only();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$is_valid = true;
+	extract($_POST);
+	$error_message = "";
+
+
+	if(!isset($goodsName) || !$goodsName){
+		$is_valid = false;
+		$error_message .= "Name missing<br>";
+	}
+
+	if(!isset($remainingStock) || !$remainingStock){
+		$is_valid = false;
+		$error_message .= "Quantity missing<br>";
+	}
+
+	if(!isset($stockPrice) || !$stockPrice){
+		$is_valid = false;
+		$error_message .= "Price missing<br>";
+	}
+
+	if(!isset($consignmentStoreID) || !$consignmentStoreID){
+		$is_valid = false;
+		$error_message .= "Consignment Store missing<br>";
+	}
+
+	if(!isset($_SESSION["tenantID"]) || !$_SESSION["tenantID"]){
+		//User ID is missing
+		$is_valid = false;
+		$error_message .= "Server error. Please report to administrator.<br>";
+	}
+
+	if($is_valid){
+		$tenantID = $_SESSION["tenantID"];
+		//insert into database
+		$error_message .= "Valid<br> $tenantID<br>";
+		$consignmentStoreID = $conn->real_escape_string($consignmentStoreID);
+		$goodsName = $conn->real_escape_string($goodsName);
+		$remainingStock = $conn->real_escape_string($remainingStock);
+		$status = 1;
+		// goods number is the auto key
+		$qs = "INSERT INTO GOODS(consignmentStoreID, goodsName, stockPrice, remainingStock, status) VALUES('$consignmentStoreID', '$goodsName', '$stockPrice','$remainingStock', '$status')";
+		$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
+		if(!$query->execute()){
+			$error_message = $query->error;
+		} else {
+			$qs = "select goodsNumber from goods order by goodsNumber desc limit 1";
+			$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+			if($query->execute()){
+				$goodsNumber = mysqli_fetch_assoc($query)["goodsNumber"];
+				header("Location: dashboard.php?$goodsNumber");
+			} else {
+				$error_message = $query->error;
+			}
+		}
+
+		$result = $query->get_result();
+
+
+	}
+
+}
+
+print_error_message($error_message);
+
 ?>
 
 <div class="container">
@@ -18,11 +87,11 @@ Who can access: Tenant
 <div class="container">
 
 
-		<div class="row">
-			<div class="col-12 text-secondary">
-				<a href="list-goods.php" class="btn btn-default">Return</a>
-			</div>
+	<div class="row">
+		<div class="col-12 text-secondary">
+			<a href="list-goods.php" class="btn btn-default">Return</a>
 		</div>
+	</div>
 
 
 	<form class="" action="" method="post">
@@ -33,7 +102,7 @@ Who can access: Tenant
 			</div>
 
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="text" name="" value="">
+				<input type="text" name="goodsName" value="" required>
 			</div>
 		</div>
 
@@ -43,7 +112,7 @@ Who can access: Tenant
 			</div>
 
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="number" name="" min="1" value="1">
+				<input type="number" name="remainingStock" min="1" value="1" required>
 			</div>
 		</div>
 
@@ -53,7 +122,7 @@ Who can access: Tenant
 			</div>
 
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<input type="number" name="" step="0.1" min="0">
+				<input type="number" name="stockPrice" step="0.1" min="0" required>
 			</div>
 		</div>
 
@@ -64,9 +133,9 @@ Who can access: Tenant
 			</div>
 
 			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<select class="form-control" name="">
-					<option value="KF">Kwai Fong</option>
-					<option value="TW">Tsuen Wan</option>
+				<select class="form-control" name="consignmentStoreID" required>
+					<option value="1">Kwai Fong</option>
+					<option value="2">Tsuen Wan</option>
 				</select>
 			</div>
 		</div>

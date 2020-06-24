@@ -9,6 +9,12 @@ Description: The page where user lands after login.
 
 customer_only();
 
+$qs = "select count(*), consignmentstore.consignmentStoreID from consignmentstore
+inner join goods on consignmentstore.consignmentStoreID = goods.consignmentStoreID
+group by consignmentstoreID";
+$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
+
 ?>
 
 <div class="container">
