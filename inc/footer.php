@@ -1,4 +1,7 @@
-<?php print_post_message(); ?>
+<?php
+print_post_message();
+mysqli_free_result();
+?>
 
 <div class="bg-primary">
 	<div class="container my-3">

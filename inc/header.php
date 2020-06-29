@@ -59,21 +59,25 @@ $error_message = ""; //To print the error message at desired page
 				<ul class="navbar-nav ml-auto">
 					<!-- Logged in users only -->
 
-					<!-- Customer -->
-					<li class="nav-item"> <a class="nav-link text-secondary" href="list-stores.php">Browse</a> </li>
-					<li class="nav-item"> <a class="nav-link text-secondary" href="manage-orders.php">Order</a> </li>
-					<li class="nav-item"> <a class="nav-link text-secondary" href="view-profile.php">Profile</a> </li>
-
-					<li class="nav-item"> <span class="nav-link"> // </span></li>
-
-					<!-- Tenant -->
-					<li class="nav-item"> <a class="nav-link text-secondary" href="list-goods.php">Goods</a> </li>
-					<li class="nav-item"> <a class="nav-link text-secondary" href="list-report.php">Report</a> </li>
-
-
-					<!-- Everyone -->
-
 					<?php
+					//Customer
+					if (isset($_SESSION["type"]) && $_SESSION["type"] == "customer"){
+						print("
+						<li class='nav-item'> <a class='nav-link text-secondary' href='list-stores.php'>Browse</a> </li>
+						<li class='nav-item'> <a class='nav-link text-secondary' href='manage-orders.php'>Order</a> </li>
+						<li class='nav-item'> <a class='nav-link text-secondary' href='view-profile.php'>Profile</a> </li>
+						");
+					}
+
+					//Tenant
+					if (isset($_SESSION["type"]) && $_SESSION["type"] == "tenant"){
+						print("
+						<li class='nav-item'> <a class='nav-link text-secondary' href='list-goods.php'>Goods</a> </li>
+						<li class='nav-item'> <a class='nav-link text-secondary' href='list-report.php'>Report</a> </li>
+						");
+					}
+
+					// Everyone
 					// <li class="nav-item">
 					// 	<a class="nav-link text-secondary" href="view-profile.php">
 					// 	<i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart

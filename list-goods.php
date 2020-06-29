@@ -9,6 +9,8 @@ Description: List of the goods a tenant own.
 
 tenant_only();
 
+$qs = "SELECT * FROM goods"; // todo ah diu
+$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
 
 ?>
 
@@ -43,17 +45,50 @@ tenant_only();
 				<th></th>
 			</tr>
 
-			<tr>
-				<td>1</td>
-				<td>Braclet</td>
-				<td> <a href="view-goods.php">Details</a></td>
-			</tr>
+			<?php
 
-			<tr>
-				<td>2</td>
-				<td>Anklet</td>
-				<td> <a href="view-goods.php">Details</a></td>
-			</tr>
+			// Display items into a table
+
+
+			$sql = "
+			SELECT goods.* FROM goods
+			INNER JOIN consignmentstore ON goods.ConsignmentStoreID = consignmentstore.ConsignmentStoreID
+			WHERE tenantID = '$_SESSION[tenantID]';
+			";
+
+
+			$query = mysqli_query($conn, $sql);
+
+			if (mysqli_num_rows($query) > 0){
+				while($goods = mysqli_fetch_assoc($query)){
+					echo "
+					<tr>
+					<td>$goods[goodsNumber]</td>
+					<td>$goods[goodsName]</td>
+					<td><a href='view-goods.php?goodsNumber=$goods[goodsNumber]'>Details</a></td>
+					</tr>
+					";
+				}
+			} else {
+				// Not found
+				echo "Not found<br>";
+				echo $sql;
+			}
+
+
+			//
+			// <tr>
+			// 	<td>1</td>
+			// 	<td>Braclet</td>
+			// 	<td> <a href="view-goods.php">Details</a></td>
+			// </tr>
+			//
+			// <tr>
+			// 	<td>2</td>
+			// 	<td>Anklet</td>
+			// 	<td> <a href="view-goods.php">Details</a></td>
+			// </tr>
+			?>
 
 		</table>
 	</div>
