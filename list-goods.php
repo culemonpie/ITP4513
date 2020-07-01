@@ -42,6 +42,7 @@ $query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
 			<tr>
 				<th>ID</th>
 				<th>Goods Name</th>
+				<th>Available</th>
 				<th></th>
 			</tr>
 
@@ -58,14 +59,15 @@ $query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
 
 
 			$query = mysqli_query($conn, $sql);
-
 			if (mysqli_num_rows($query) > 0){
-				while($goods = mysqli_fetch_assoc($query)){
+				while($result = mysqli_fetch_assoc($query)){
+					$availability = ($result['status'] == 1)? "Yes": "No";
 					echo "
 					<tr>
-					<td>$goods[goodsNumber]</td>
-					<td>$goods[goodsName]</td>
-					<td><a href='view-goods.php?goodsNumber=$goods[goodsNumber]'>Details</a></td>
+					<td>$result[goodsNumber]</td>
+					<td>$result[goodsName]</td>
+					<td>$availability</td>
+					<td><a href='view-goods.php?goodsNumber=$result[goodsNumber]'>Details</a></td>
 					</tr>
 					";
 				}

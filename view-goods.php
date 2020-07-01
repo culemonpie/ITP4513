@@ -26,8 +26,8 @@ if (mysqli_num_rows($query) > 0){
 	echo "Not found";
 }
 
-
-printf("
+$availability = ($goods["status"] == 1) ? "Yes": "No";
+print("
 <div class='container'>
 	<div class='row'>
 		<div class='col-12 mt-2'>
@@ -96,12 +96,12 @@ printf("
 			Available
 		</div>
 		<div class='col-12 col-sm-8 text-secondary font-weight-bold'>
-			%s
+			$availability
 		</div>
 	</div>
 
 </div>
-", $goods["status"] == 1 ? "True": "False" );
+");
 
 ?>
 

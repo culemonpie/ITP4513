@@ -18,9 +18,15 @@ login_only();
 			<div class="text-secondary" style="font-size:30px">
 				<b>Welcome, <?php echo $display_name; ?>.</b>
 			</div>
-			<div class="mt-1">
-				<a href="view-profile.php" class="btn btn-default">View profile</a>
-			</div>
+			<?php
+			if ($_SESSION['type'] == 'customer'){
+				print("
+				<div class='mt-1'>
+				<a href='view-profile.php' class='btn btn-default'>View profile</a>
+				</div>
+				");
+			}
+			?>
 		</div>
 	</div>
 </div>
