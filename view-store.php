@@ -12,7 +12,7 @@ customer_only();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$is_valid = true;
 
- // Check the user input.
+	// Check the user input.
 	// Check if the values are between 1 and stock number (0 or empty value will be omitted) within the database.
 
 
@@ -84,10 +84,10 @@ Below is the list of available goods from <strong>$consignmentStoreName</strong>
 
 
 
-<form method='post'>
+<form method='post' id='orderForm'>
 
 <div class='row mt-3'>
-<table class='table table-hover table-nonfluid'>
+<table class='table table-hover table-nonfluid' id='price_table'>
 <tr>
 <th>Product #</th>
 <th>Name</th>
@@ -104,7 +104,7 @@ Below is the list of available goods from <strong>$consignmentStoreName</strong>
 
 while($result = mysqli_fetch_assoc($query)){
 	print("
-	<tr>
+	<tr id='row_$result[goodsNumber]'>
 	<td>$result[goodsNumber]</td>
 	<td>$result[goodsName]</td>
 	<td>$result[remainingStock]</td>
@@ -128,12 +128,10 @@ Please choose your pick up location
 </select>
 </div>
 
-<!--
 <div class='mt-1' id='total_price_holder' style='font-size:20px'>
 Total - HKD
 <span id='total_price_text' class='text-secondary font-weight-bold'>200</span>
 </div>
--->
 
 <div class='mt-2'>
 <button type='submit' name='' class='btn btn-default'>
@@ -145,6 +143,30 @@ Total - HKD
 ");
 
 ?>
+
+<script type="text/javascript">
+// Calculate the cost with Javascript
+$("#orderForm").change(function(){
+	var sum = 0;
+
+	$('table#price_table tr').each(function(){
+		var unit_price = $(this).children("td").eq(3).html();
+		var quantity = $(this).children("td").eq(4).children("input").eq(0).val();
+		console.log(unit_price + " * " + quantity + " = " + unit_price * quantity);
+
+		// sum += unit_price * quantity;
+	});
+
+
+
+	// $("#total_price_text").hide();
+	// $("#total_price_text").fadeIn(1000);
+
+
+	console.log(sum);
+});
+</script>
+
 
 <?php
 include 'inc/footer.php';
