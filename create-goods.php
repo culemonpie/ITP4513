@@ -51,23 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		// goods number is the auto key
 		$qs = "INSERT INTO GOODS(consignmentStoreID, goodsName, stockPrice, remainingStock, status) VALUES('$consignmentStoreID', '$goodsName', '$stockPrice','$remainingStock', '$status')";
 		$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
-
-		if(!$query->execute()){
-			$error_message = $query->error;
-		} else {
-			$qs = "select goodsNumber from goods order by goodsNumber desc limit 1";
-			$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
-			if($query->execute()){
-				$goodsNumber = mysqli_fetch_assoc($query)["goodsNumber"];
-				header("Location: dashboard.php?$goodsNumber");
-			} else {
-				$error_message = $query->error;
-			}
-		}
-
-		$result = $query->get_result();
-
-
+		echo "1";
+		header("Location: view-goods.php?goodsNumber=".mysqli_insert_id($conn) );
+		echo ("success");
 	}
 
 }
@@ -132,10 +118,18 @@ print_error_message($error_message);
 				Store
 			</div>
 
-			<div class="col-12 col-sm-8 text-secondary font-weight-bold">
-				<select class="form-control" name="consignmentStoreID" required>
-					<option value="1">Kwai Fong</option>
-					<option value="2">Tsuen Wan</option>
+			<div class='col-12 col-sm-8 text-secondary font-weight-bold'>
+				<select class='form-control' name='consignmentStoreID' required>
+					<?php
+
+					$qs = "select * from consignmentStore where tenantID = '$_SESSION[tenantID]'";
+					$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+					while ($result = mysqli_fetch_assoc($query)){
+						print("
+						<option value='$result[consignmentStoreID]'>$result[ConsignmentStoreName]</option>
+						");
+					}
+					?>
 				</select>
 			</div>
 		</div>

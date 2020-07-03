@@ -8,6 +8,16 @@ Who can access: Tenant
 Description: View the content of a report
 */
 
+tenant_only();
+
+$qs = "
+select * from orders
+inner join shop on orders.ShopID = Shop.ShopID
+where orderID = '$orderID' and customerEmail = '$customerEmail'
+limit 1
+";
+$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
 
 /*
 1. Order ID - ok

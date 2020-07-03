@@ -50,7 +50,7 @@ print("
 
 		<div class='row'>
 			<div class='col-12 text-secondary'>
-				<a href='view-goods.php' class='btn btn-default'>Return</a>
+				<a href='view-goods.php?goodsNumber=$_GET[goodsNumber]' class='btn btn-default'>Return</a>
 			</div>
 		</div>
 
@@ -95,8 +95,7 @@ print("
 
 			<div class='col-12 col-sm-8 text-secondary font-weight-bold'>
 				<select class='form-control' name='store'>
-					<option value='KF'>Kwai Fong</option>
-					<option value='TW'>Tsuen Wan</option>
+					<option value='1'>Marcus Consignment Store</option>
 				</select>
 			</div>
 		</div>
