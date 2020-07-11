@@ -20,7 +20,7 @@ Description: An anonymous user can fill in their customerEmail, firstName, lastN
 <div class="container">
 <div class="row">
 	<div class="col-12">
-		<div class="my-2 text-secondary font-weight-bold">Thank you. You can now login as joe@example.com .</div>
+		<div class="my-2 text-secondary font-weight-bold">Thank you. You can now login with your account.</div>
 		<div> <a class="my-2 btn btn-default" href="index.php">Home</a> </div>
 	</div>
 </div>

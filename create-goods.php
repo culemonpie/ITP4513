@@ -112,7 +112,6 @@ print_error_message($error_message);
 			</div>
 		</div>
 
-
 		<div class="row mt-3">
 			<div class="col-12 col-sm-3">
 				Store

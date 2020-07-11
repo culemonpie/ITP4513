@@ -61,7 +61,7 @@ print("
 <div class='container'>
 <div class='row'>
 <div class='col-12 my-2'>
-<h4 class='text-secondary'>Change password</h4>
+<h4 class='text-secondary'>Update profile</h4>
 </div>
 </div>
 </div>

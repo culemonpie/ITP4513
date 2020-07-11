@@ -100,7 +100,7 @@ if (mysqli_num_rows($query) > 0){
 	");
 
 } else {
-	//todo
+	//Not found
 
 	print("
 	<div class='container'>

@@ -1,5 +1,5 @@
 <?php
-print_post_message();
+//print_post_message();
 mysqli_free_result();
 mysqli_close();
 ?>

@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$_SESSION["customerEmail"] = $tenant["customerEmail"];
 				header("Location: dashboard.php");
 			} else {
-				$error_message = "Tenant ID / password incorrect<br>";
+				$error_message = "Customer Email / password incorrect<br>";
 			};
 		}
 	} else {
