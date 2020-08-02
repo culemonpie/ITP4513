@@ -2,12 +2,11 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 1.1
 Who can access: Logged in users
 Description: The page where user lands after login.
 */
-
-
+login_only();
 
 ?>
 
@@ -19,9 +18,15 @@ Description: The page where user lands after login.
 			<div class="text-secondary" style="font-size:30px">
 				<b>Welcome, <?php echo $display_name; ?>.</b>
 			</div>
-			<div class="mt-1">
-				<a href="view-profile.php" class="btn btn-default">View profile</a>
-			</div>
+			<?php
+			if ($_SESSION['type'] == 'customer'){
+				print("
+				<div class='mt-1'>
+				<a href='view-profile.php' class='btn btn-default'>View profile</a>
+				</div>
+				");
+			}
+			?>
 		</div>
 	</div>
 </div>

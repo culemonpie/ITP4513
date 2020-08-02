@@ -1,5 +1,17 @@
 <?php
 include 'inc/header.php';
+
+/*
+Page code: 4.5
+Who can access: Tenant
+Description: List of the goods a tenant own.
+*/
+
+tenant_only();
+
+$qs = "SELECT * FROM goods"; // todo ah diu
+$query = mysqli_query($conn, $qs) or die(mysqli_error($conn));
+
 ?>
 
 <div class="container">
@@ -30,20 +42,55 @@ include 'inc/header.php';
 			<tr>
 				<th>ID</th>
 				<th>Goods Name</th>
+				<th>Available</th>
 				<th></th>
 			</tr>
 
-			<tr>
-				<td>1</td>
-				<td>Braclet</td>
-				<td> <a href="view-goods.php">Details</a></td>
-			</tr>
+			<?php
 
-			<tr>
-				<td>2</td>
-				<td>Anklet</td>
-				<td> <a href="view-goods.php">Details</a></td>
-			</tr>
+			// Display items into a table
+
+
+			$sql = "
+			SELECT goods.* FROM goods
+			INNER JOIN consignmentstore ON goods.ConsignmentStoreID = consignmentstore.ConsignmentStoreID
+			WHERE tenantID = '$_SESSION[tenantID]';
+			";
+
+
+			$query = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($query) > 0){
+				while($result = mysqli_fetch_assoc($query)){
+					$availability = ($result['status'] == 1)? "Yes": "No";
+					echo "
+					<tr>
+					<td>$result[goodsNumber]</td>
+					<td>$result[goodsName]</td>
+					<td>$availability</td>
+					<td><a href='view-goods.php?goodsNumber=$result[goodsNumber]'>Details</a></td>
+					</tr>
+					";
+				}
+			} else {
+				// Not found
+				echo "Not found<br>";
+				echo $sql;
+			}
+
+
+			//
+			// <tr>
+			// 	<td>1</td>
+			// 	<td>Braclet</td>
+			// 	<td> <a href="view-goods.php">Details</a></td>
+			// </tr>
+			//
+			// <tr>
+			// 	<td>2</td>
+			// 	<td>Anklet</td>
+			// 	<td> <a href="view-goods.php">Details</a></td>
+			// </tr>
+			?>
 
 		</table>
 	</div>

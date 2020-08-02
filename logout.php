@@ -2,7 +2,7 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 1.9
 Who can access: Anonymous users
 */
 

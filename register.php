@@ -2,8 +2,9 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 1.2
 Who can access: Anonymous users
+Description: An anonymous user can fill in their customerEmail, firstName, lastName, phoneNumber and password. If all the inforation are valid, insert that record into the database. Otherwise, show an appropriate error to the user.
 */
 ?>
 

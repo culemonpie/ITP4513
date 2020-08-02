@@ -2,7 +2,7 @@
 include 'inc/header.php';
 
 /*
-Page code:
+Page code: 0.1
 Who can access: Anonymous users
 Description: Homepage of the website. If a user visits a page without permission, they will be redirected to this page.
 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$_SESSION["customerEmail"] = $tenant["customerEmail"];
 				header("Location: dashboard.php");
 			} else {
-				$error_message = "Tenant ID / password incorrect<br>";
+				$error_message = "Customer Email / password incorrect<br>";
 			};
 		}
 	} else {
